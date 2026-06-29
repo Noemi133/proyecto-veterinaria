@@ -1,0 +1,19 @@
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0;
+
+}
+
+table{
+
+    vertical-align:middle;
+
+}

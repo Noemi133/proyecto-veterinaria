@@ -1,0 +1,71 @@
+<div class="container py-5">
+
+<h2 class="mb-4">
+📅 Calendario de Citas
+</h2>
+
+<input
+class="form-control mb-4"
+placeholder="Buscar mascota..."
+[(ngModel)]="filtro">
+
+<table class="table table-striped table-hover">
+
+<thead>
+
+<tr>
+
+<th>Fecha</th>
+<th>Hora</th>
+<th>Mascota</th>
+<th>Veterinario</th>
+<th>Estado</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+@for(cita of citas; track cita.id){
+
+@if(cita.mascotaNombre.toLowerCase().includes(filtro.toLowerCase())){
+
+<tr>
+
+<td>{{cita.fecha}}</td>
+
+<td>{{cita.hora}}</td>
+
+<td>{{cita.mascotaNombre}}</td>
+
+<td>{{cita.veterinario}}</td>
+
+<td>
+
+<select
+class="form-select"
+[(ngModel)]="cita.estado"
+(change)="cambiarEstado(cita)">
+
+<option>Pendiente</option>
+
+<option>Atendida</option>
+
+<option>Cancelada</option>
+
+</select>
+
+</td>
+
+</tr>
+
+}
+
+}
+
+</tbody>
+
+</table>
+
+</div>

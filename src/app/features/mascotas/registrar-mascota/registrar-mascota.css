@@ -1,0 +1,36 @@
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0;
+
+}
+
+input,
+select{
+
+    height:45px;
+
+}
+
+button{
+
+    height:48px;
+
+    font-size:18px;
+
+}
+
+small{
+
+    display:block;
+
+    margin-top:5px;
+
+}

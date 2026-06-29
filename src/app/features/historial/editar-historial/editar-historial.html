@@ -1,0 +1,148 @@
+<div class="container py-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-warning">
+
+            <h3>✏️ Editar Historial Médico</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <form [formGroup]="historialForm"
+                  (ngSubmit)="actualizar()">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>Mascota</label>
+
+                        <select
+                            class="form-select"
+                            formControlName="mascotaId">
+
+                            @for(mascota of mascotas; track mascota.id){
+
+                                <option [value]="mascota.id">
+
+                                    {{mascota.nombre}}
+
+                                </option>
+
+                            }
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>Fecha</label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            formControlName="fecha">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>Peso</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            formControlName="peso">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>Temperatura</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            formControlName="temperatura">
+
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Diagnóstico</label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        formControlName="diagnostico"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Tratamiento</label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        formControlName="tratamiento"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Medicamentos</label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        formControlName="medicamentos"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Observaciones</label>
+
+                    <textarea
+                        class="form-control"
+                        rows="3"
+                        formControlName="observaciones"></textarea>
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label>Veterinario</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="veterinario">
+
+                </div>
+
+                <button
+                    class="btn btn-warning"
+                    type="submit">
+
+                    💾 Actualizar
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,155 @@
+<div class="container py-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+
+            <h3 class="mb-0">
+                🩺 Registrar Historial Médico
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <form [formGroup]="historialForm" (ngSubmit)="guardar()">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Mascota</label>
+
+                        <select
+                            class="form-select"
+                            formControlName="mascotaId">
+
+                            <option value="">Seleccione...</option>
+
+                            @for (mascota of mascotas; track mascota.id) {
+
+                                <option [value]="mascota.id">
+
+                                    {{ mascota.nombre }} - {{ mascota.especie }}
+
+                                </option>
+
+                            }
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Fecha</label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            formControlName="fecha">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Peso (Kg)</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            formControlName="peso">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Temperatura (°C)</label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            formControlName="temperatura">
+
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">Diagnóstico</label>
+
+                    <textarea
+                        rows="3"
+                        class="form-control"
+                        formControlName="diagnostico"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">Tratamiento</label>
+
+                    <textarea
+                        rows="3"
+                        class="form-control"
+                        formControlName="tratamiento"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">Medicamentos</label>
+
+                    <textarea
+                        rows="3"
+                        class="form-control"
+                        formControlName="medicamentos"></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">Observaciones</label>
+
+                    <textarea
+                        rows="3"
+                        class="form-control"
+                        formControlName="observaciones"></textarea>
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label">Veterinario</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="veterinario">
+
+                </div>
+
+                <div class="text-end">
+
+                    <button
+                        type="submit"
+                        class="btn btn-success">
+
+                        💾 Guardar Historial
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

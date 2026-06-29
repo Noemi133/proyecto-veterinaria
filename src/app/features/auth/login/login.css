@@ -1,0 +1,40 @@
+body{
+    background:#eef5ff;
+}
+
+.login-container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #0d6efd,
+        #5dade2
+    );
+
+}
+
+.login-card{
+
+    width:420px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+}
+
+.logo{
+
+    font-size:70px;
+
+}

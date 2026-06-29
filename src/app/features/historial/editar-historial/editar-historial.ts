@@ -1,0 +1,146 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import Swal from 'sweetalert2';
+
+import { Mascota } from '../../../models/mascota';
+import { Historial } from '../../../models/historial';
+
+import { MascotaService } from '../../../core/services/mascota.service';
+import { HistorialService } from '../../../core/services/historial.service';
+
+@Component({
+  selector: 'app-editar-historial',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+  ],
+  templateUrl: './editar-historial.html',
+  styleUrl: './editar-historial.css'
+})
+export class EditarHistorial implements OnInit {
+
+  historialForm!: FormGroup;
+
+  mascotas: Mascota[] = [];
+
+  historialId!: number;
+
+  constructor(
+    private fb: FormBuilder,
+    private mascotaService: MascotaService,
+    private historialService: HistorialService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+
+    this.mascotas = this.mascotaService.obtenerTodas();
+
+    this.historialForm = this.fb.group({
+
+      mascotaId: ['', Validators.required],
+      fecha: ['', Validators.required],
+      peso: ['', Validators.required],
+      temperatura: ['', Validators.required],
+      diagnostico: ['', Validators.required],
+      tratamiento: ['', Validators.required],
+      medicamentos: ['', Validators.required],
+      observaciones: [''],
+      veterinario: ['', Validators.required]
+
+    });
+
+    this.historialId = Number(
+      this.route.snapshot.paramMap.get('id')
+    );
+
+    const historial =
+      this.historialService.obtenerPorId(this.historialId);
+
+    if (!historial) {
+
+      Swal.fire(
+        'Error',
+        'Historial no encontrado',
+        'error'
+      );
+
+      this.router.navigate(['/listar-historial']);
+
+      return;
+
+    }
+
+    this.historialForm.patchValue(historial);
+
+  }
+
+  actualizar(): void {
+
+    if (this.historialForm.invalid) {
+
+      this.historialForm.markAllAsTouched();
+
+      return;
+
+    }
+
+    const mascota = this.mascotas.find(
+      m => m.id == this.historialForm.value.mascotaId
+    );
+
+    const historial: Historial = {
+
+      id: this.historialId,
+
+      mascotaId: mascota!.id,
+
+      mascotaNombre: mascota!.nombre,
+
+      fecha: this.historialForm.value.fecha,
+
+      peso: this.historialForm.value.peso,
+
+      temperatura: this.historialForm.value.temperatura,
+
+      diagnostico: this.historialForm.value.diagnostico,
+
+      tratamiento: this.historialForm.value.tratamiento,
+
+      medicamentos: this.historialForm.value.medicamentos,
+
+      observaciones: this.historialForm.value.observaciones,
+
+      veterinario: this.historialForm.value.veterinario
+
+    };
+
+    this.historialService.actualizar(historial);
+
+    Swal.fire({
+
+      icon: 'success',
+
+      title: 'Historial actualizado',
+
+      timer: 1500,
+
+      showConfirmButton: false
+
+    });
+
+    this.router.navigate(['/listar-historial']);
+
+  }
+
+}

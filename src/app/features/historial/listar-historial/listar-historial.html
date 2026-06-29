@@ -1,0 +1,133 @@
+<div class="container py-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+
+            <h3 class="mb-0">
+
+                📋 Historiales Médicos
+
+            </h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="mb-3">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Buscar por mascota..."
+                    [(ngModel)]="filtro">
+
+            </div>
+
+            @if(historialesFiltrados.length==0){
+
+                <div class="alert alert-warning">
+
+                    No existen historiales registrados.
+
+                </div>
+
+            }@else{
+
+                <table class="table table-hover table-striped">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Mascota</th>
+
+                            <th>Fecha</th>
+
+                            <th>Veterinario</th>
+
+                            <th>Peso</th>
+
+                            <th>Temperatura</th>
+
+                            <th width="150">
+
+                                Acciones
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @for(historial of historialesFiltrados; track historial.id){
+
+                            <tr>
+
+                                <td>
+
+                                    {{historial.mascotaNombre}}
+
+                                </td>
+
+                                <td>
+
+                                    {{historial.fecha}}
+
+                                </td>
+
+                                <td>
+
+                                    {{historial.veterinario}}
+
+                                </td>
+
+                                <td>
+
+                                    {{historial.peso}} Kg
+
+                                </td>
+
+                                <td>
+
+                                    {{historial.temperatura}} °C
+
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        class="btn btn-warning btn-sm me-2"
+                                        [routerLink]="['/editar-historial', historial.id]">
+
+                                        ✏️
+
+                                    </a>
+
+                                    <button
+                                        class="btn btn-danger btn-sm"
+                                        (click)="eliminar(historial.id)">
+
+                                        🗑️
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>

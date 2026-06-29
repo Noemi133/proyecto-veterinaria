@@ -1,0 +1,184 @@
+<div class="container py-5">
+
+  <div class="card shadow">
+
+    <div class="card-header bg-primary text-white">
+
+      <h3 class="mb-0">
+        📅 Agendar Cita
+      </h3>
+
+    </div>
+
+    <div class="card-body">
+
+      <form [formGroup]="citaForm" (ngSubmit)="guardar()">
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+
+            <label class="form-label">
+              Mascota
+            </label>
+
+            <select
+              class="form-select"
+              formControlName="mascotaId">
+
+              <option value="">
+                Seleccione una mascota
+              </option>
+
+              @for (mascota of mascotas; track mascota.id) {
+
+                <option [value]="mascota.id">
+
+                  {{ mascota.nombre }}
+
+                  - {{ mascota.especie }}
+
+                </option>
+
+              }
+
+            </select>
+
+          </div>
+
+          <div class="col-md-3 mb-3">
+
+            <label class="form-label">
+
+              Fecha
+
+            </label>
+
+            <input
+              type="date"
+              class="form-control"
+              formControlName="fecha">
+
+          </div>
+
+          <div class="col-md-3 mb-3">
+
+            <label class="form-label">
+
+              Hora
+
+            </label>
+
+            <input
+              type="time"
+              class="form-control"
+              formControlName="hora">
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+
+            <label class="form-label">
+
+              Veterinario
+
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="veterinario"
+              placeholder="Nombre del veterinario">
+
+          </div>
+
+          <div class="col-md-6 mb-3">
+
+            <label class="form-label">
+
+              Motivo
+
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              formControlName="motivo"
+              placeholder="Ej. Vacunación">
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-4 mb-3">
+
+            <label class="form-label">
+
+              Estado
+
+            </label>
+
+            <select
+              class="form-select"
+              formControlName="estado">
+
+              <option value="Pendiente">
+                Pendiente
+              </option>
+
+              <option value="Atendida">
+                Atendida
+              </option>
+
+              <option value="Cancelada">
+                Cancelada
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="col-md-8 mb-3">
+
+            <label class="form-label">
+
+              Observaciones
+
+            </label>
+
+            <textarea
+              rows="3"
+              class="form-control"
+              formControlName="observaciones">
+
+            </textarea>
+
+          </div>
+
+        </div>
+
+        <div class="text-end">
+
+          <button
+            class="btn btn-primary px-4"
+            type="submit">
+
+            💾 Guardar Cita
+
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

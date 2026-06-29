@@ -1,0 +1,47 @@
+.container{
+
+    max-width:1200px;
+
+}
+
+.card-info{
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.icono{
+
+    font-size:50px;
+
+    margin-bottom:10px;
+
+}
+
+.opcion{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.opcion:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+}
