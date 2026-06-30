@@ -162,7 +162,7 @@ Se implementó una Directiva personalizada para resaltar visualmente el estado d
 ## 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/USUARIO/proyecto-veterinaria.git
+git clone https://github.com/Noemi133/proyecto-veterinaria
 ```
 
 ## 2. Ingresar al proyecto
@@ -220,25 +220,9 @@ Contraseña
 
 ---
 
-# Capturas del Sistema
-
-Se recomienda agregar capturas de las siguientes pantallas:
-
-* Login
-* Dashboard
-* Registrar Mascota
-* Listar Mascotas
-* Registrar Cita
-* Listar Citas
-* Calendario
-* Registrar Historial
-* Listar Historial
-
----
-
 # Requisitos
 
-* Node.js 18 o superior
+* Node.js 22.x o v24.15.0+ (Recomendado para Angular 22)
 * Angular CLI
 * Visual Studio Code
 * Navegador web moderno
@@ -247,23 +231,17 @@ Se recomienda agregar capturas de las siguientes pantallas:
 
 # Integrantes
 
-* Integrante 1
-* Integrante 2
-* Integrante 3
+* Katy Galindo
+* Abraham Falcon
+* Marcos Vieira
+* Americo Huaman 
 
 ---
 
 # Repositorio
 
-Agregar aquí el enlace del repositorio de GitHub.
+https://github.com/Noemi133/proyecto-veterinaria.git
 
-Ejemplo:
-
-```text
-https://github.com/usuario/proyecto-veterinaria
-```
-
----
 
 # Conclusión
 
